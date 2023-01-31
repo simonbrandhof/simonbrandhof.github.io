@@ -10,6 +10,8 @@ backend:
   name: github
   repo: simonbrandhof/simonbrandhof.github.io
   branch: main
+  base_url: https://github-oauth-ojofun7zia-ew.a.run.app
+  auth: github-oauth/auth
 
 
 media_folder: "src/media"
