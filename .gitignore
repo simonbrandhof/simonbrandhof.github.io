@@ -1,5 +1,4 @@
 .DS_Store
-.github/
 .idea/
 build/
 node_modules/
