@@ -1,15 +1,14 @@
 # Uncomment for development environment
 #  Run "npx netlify-cms-proxy-server" to start local Netlify server
-local_backend: true
-backend:
-  name: git-gateway
-  branch: main
+#local_backend: true
+#backend:
+#  name: git-gateway
+#  branch: main
 
 # Uncomment for production environment
-#local_backend: false
-#backend:
-#  name: github
-#  repo: simonbrandhof/www.brandhof.net
+backend:
+  name: github
+  repo: simonbrandhof/simonbrandhof.github.io
 
 
 media_folder: "src/media"
