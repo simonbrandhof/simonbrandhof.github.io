@@ -4,7 +4,7 @@ module.exports = function(eleventyConfig) {
 		"src/img": "img",
 		"src/admin/config.yml": "admin/config.yml",
 		"src/media": "media",
-		"src/site.webmanifest": "./"
+		"src/site.webmanifest": "site.webmanifest"
 	});
 
 	return {
