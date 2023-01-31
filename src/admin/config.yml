@@ -1,0 +1,49 @@
+# Uncomment for development environment
+#  Run "npx netlify-cms-proxy-server" to start local Netlify server
+local_backend: true
+backend:
+  name: git-gateway
+  branch: main
+
+# Uncomment for production environment
+#local_backend: false
+#backend:
+#  name: github
+#  repo: simonbrandhof/www.brandhof.net
+
+
+media_folder: "src/media"
+public_folder: "/media"
+locale: "en"
+search: false
+
+
+# publish_mode: editorial_workflow
+collections:
+  - label: "Links"
+    name: "link"
+    folder: "src/links"
+    create: true
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: "Internal key, never displayed, used for ordering"
+      - label: "Description"
+        name: "body"
+        widget: "markdown"
+        minimal: true
+      - label: "Image"
+        name: "image"
+        widget: "image"
+        allow_multiple: false
+        choose_url: false
+  - label: "Settings"
+    name: "settings"
+    files:
+      - label: "Website"
+        name: "metadata"
+        file: "src/_data/metadata.json"
+        format: "json"
+        fields:
+          - { label: Description, name: description, widget: string }

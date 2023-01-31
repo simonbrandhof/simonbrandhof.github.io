@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="{{ metadata.language }}">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>{{ title or metadata.title }}</title>
+		<meta name="description" content="{{ description or metadata.description }}">
+		<meta name="generator" content="{{ eleventy.generator }}">
+		<style>
+		{%- include "assets/css/inline.css" -%}
+		</style>
+		<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+	</head>
+	<body>
+		<header>
+			<a href="/" class="home-link">{{ metadata.description }}</a>
+		</header>
+
+		<main>
+			{{ content | safe }}
+		</main>
+
+		<!-- Current page: {{ page.url }} -->
+	</body>
+</html>
