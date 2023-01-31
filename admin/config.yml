@@ -9,6 +9,7 @@
 backend:
   name: github
   repo: simonbrandhof/simonbrandhof.github.io
+  branch: main
 
 
 media_folder: "src/media"
