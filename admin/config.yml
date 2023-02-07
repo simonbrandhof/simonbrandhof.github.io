@@ -1,17 +1,17 @@
 # Uncomment for development environment
 #  Run "npx netlify-cms-proxy-server" to start local Netlify server
-#local_backend: true
-#backend:
-#  name: git-gateway
-#  branch: main
+local_backend: true
+backend:
+  name: git-gateway
+  branch: main
 
 # Uncomment for production environment
-backend:
-  name: github
-  repo: simonbrandhof/simonbrandhof.github.io
-  branch: main
-  base_url: https://github-oauth-ojofun7zia-ew.a.run.app
-  auth: github-oauth/auth
+#backend:
+#  name: github
+#  repo: simonbrandhof/simonbrandhof.github.io
+#  branch: main
+#  base_url: https://github-oauth-ojofun7zia-ew.a.run.app
+#  auth: github-oauth/auth
 
 
 media_folder: "src/media"
@@ -19,20 +19,28 @@ public_folder: "/media"
 locale: "en"
 search: false
 
-
 # publish_mode: editorial_workflow
 collections:
   - label: "Links"
     name: "link"
-    folder: "src/links"
+    folder: "src/_data/links"
     create: true
+    format: json
+    identifier_field: key
     fields:
-      - label: "Title"
-        name: "title"
+      - label: "Key"
+        name: "key"
         widget: "string"
         hint: "Internal key, never displayed, used for ordering"
-      - label: "Description"
-        name: "body"
+      - label: "URL"
+        name: "url"
+        widget: "string"
+      - label: "Title (English)"
+        name: "title_en"
+        widget: "markdown"
+        minimal: true
+      - label: "Title (French)"
+        name: "title_fr"
         widget: "markdown"
         minimal: true
       - label: "Image"
@@ -40,12 +48,18 @@ collections:
         widget: "image"
         allow_multiple: false
         choose_url: false
-  - label: "Settings"
-    name: "settings"
+  - name: "pages"
+    label: "Pages"
     files:
-      - label: "Website"
-        name: "metadata"
-        file: "src/_data/metadata.json"
-        format: "json"
+      - label: "About (English)"
+        name: "about_en"
+        file: "src/en/about.md"
         fields:
-          - { label: Description, name: description, widget: string }
+          - { label: Title, name: title, widget: string }
+          - { label: Body, name: body, widget: markdown, minimal: true }
+      - label: "About (French)"
+        name: "about_fr"
+        file: "src/fr/about.md"
+        fields:
+          - { label: Title, name: title, widget: string }
+          - { label: Body, name: body, widget: markdown, minimal: true }
