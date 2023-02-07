@@ -1,11 +1,16 @@
 ---
-title: Home
 layout: layouts/base.njk
-eleventyImport:
-	collections: ["link"]
 ---
-<ul>
-	{%- for link in collections.link -%}
-	<li>{{ link.content | safe }}</li>
-	{%- endfor -%}
-</ul>
+<script type="text/javascript">
+	// l10n: find the first supported language from the preferred languages configured in browser
+	let path = "/en";
+	for (let i = 0; i < navigator.languages.length; i++) {
+		let lang = navigator.languages[i].split("-")[0];
+		//TODO: load the supported languages dynamically from configuration
+		if (lang === "en" || lang === "fr") {
+			path = "/" + lang;
+			break;
+		}
+	}
+	window.location.href = path;
+</script>
