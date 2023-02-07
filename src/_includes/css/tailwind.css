@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 @layer components {
-	#contributions a {
+	.contribution a {
 		@apply py-0.5 px-0.5 bg-orange-400 text-black underline decoration-1;
 	}
 
-	#fandf a {
+	.fandf a {
 		@apply py-0.5 px-0.5 bg-yellow-400 text-black underline decoration-1;
 	}
 }

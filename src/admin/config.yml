@@ -15,15 +15,15 @@ backend:
 
 
 media_folder: "src/media"
-public_folder: "/media"
+public_folder: "/img"
 locale: "en"
 search: false
 
 # publish_mode: editorial_workflow
 collections:
-  - label: "Links"
-    name: "link"
-    folder: "src/_data/links"
+  - label: "Contributions"
+    name: "contribution"
+    folder: "src/_data/contributions"
     create: true
     format: json
     identifier_field: key
@@ -32,8 +32,15 @@ collections:
         name: "key"
         widget: "string"
         hint: "Internal key, never displayed, used for ordering"
-      - label: "URL"
-        name: "url"
+      - label: "Name"
+        name: "name"
+        widget: "string"
+        hint: "Displayed as image tooltip"
+      - label: "URL (English)"
+        name: "url_en"
+        widget: "string"
+      - label: "URL (French)"
+        name: "url_fr"
         widget: "string"
       - label: "Title (English)"
         name: "title_en"
@@ -48,6 +55,42 @@ collections:
         widget: "image"
         allow_multiple: false
         choose_url: false
+        hint: "Must be 4/3 aspect ratio"
+  - label: "Friends & family"
+    name: "fandf"
+    folder: "src/_data/fandfs"
+    create: true
+    format: json
+    identifier_field: key
+    fields:
+      - label: "Key"
+        name: "key"
+        widget: "string"
+        hint: "Internal key, never displayed, used for ordering"
+      - label: "Name"
+        name: "name"
+        widget: "string"
+        hint: "Displayed as image tooltip"
+      - label: "URL (English)"
+        name: "url_en"
+        widget: "string"
+      - label: "URL (French)"
+        name: "url_fr"
+        widget: "string"
+      - label: "Title (English)"
+        name: "title_en"
+        widget: "markdown"
+        minimal: true
+      - label: "Title (French)"
+        name: "title_fr"
+        widget: "markdown"
+        minimal: true
+      - label: "Image"
+        name: "image"
+        widget: "image"
+        allow_multiple: false
+        choose_url: false
+        hint: "Must be 4/3 aspect ratio"
   - name: "pages"
     label: "Pages"
     files:

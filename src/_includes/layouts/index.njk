@@ -1,26 +1,49 @@
 ---
 layout: layouts/base.njk
 ---
-
 <div class="lg:flex">
-	<div class="lg:flex-1 p-6 lg:p-10">
-		<p class="text-5xl sm:text-7xl text-white font-bold flex-nowrap whitespace-nowrap">
+	<div class="lg:flex-initial p-6 lg:p-10 lg:pr-40">
+		<div class="text-5xl sm:text-7xl text-white font-bold flex-nowrap whitespace-nowrap">
 		{{ content | safe }}
-		</p>
+		</div>
 	</div>
 	<div class="lg:flex-1 p-6 lg:p-10">
-		<h2 class="leading-10 text-2xl sm:text-4xl font-bold pb-6">contributions</h2>
-		<ul id="contributions">
+		<p></p>
+	</div>
+</div>
+<div class="p-6 lg:p-10">
+	<h2 class="leading-10 text-2xl sm:text-4xl font-bold pb-5 md:pb-10">contributions</h2>
+	<div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-10 max-w-[1800px]">
 			<!-- how to iterate the global files in _data/: https://github.com/11ty/eleventy/issues/304#issuecomment-440678396 -->
-			{%- for key, link in links -%}
-				<li class="py-2 text-xl">{{ link["title_" + locale] | md | safe }}</li>
+			{%- for key, contribution in contributions -%}
+				<div class="md:self-end pb-14 md:pb-6">
+					<div class="contribution text-xl pb-5">
+						{{ contribution["title_" + locale] | md | safe }}
+					</div>
+					<div class="border-2 border-stone-900">
+						<a href="{{ contribution["url_" + locale] }}">
+							{% image "src/" + contribution["image"], contribution["name"] %}
+						</a>
+					</div>
+				</div>
 			{%- endfor -%}
-		</ul>
-		<h2 class="leading-10 text-2xl sm:text-4xl font-bold pt-12 lg:pt-20 pb-6">friends & family</h2>
-		<ul id="fandf">
-			{%- for key, fandf in fandfs -%}
-				<li class="py-2 text-xl">{{ fandf["title_" + locale] | md | safe }}</li>
-			{%- endfor -%}
-		</ul>
+	</div>
+</div>
+<div class="p-6 lg:p-10">
+	<h2 class="leading-10 text-2xl sm:text-4xl font-bold pb-5 md:pb-10">friends & family</h2>
+	<div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-10 max-w-screen-2xl">
+		<!-- how to iterate the global files in _data/: https://github.com/11ty/eleventy/issues/304#issuecomment-440678396 -->
+		{%- for key, fandf in fandfs -%}
+			<div class="md:self-end pb-14 md:pb-6">
+				<div class="fandf text-xl pb-5">
+					{{ fandf["title_" + locale] | md | safe }}
+				</div>
+				<div class="border-2 border-stone-900">
+					<a href="{{ fandf["url_" + locale] }}">
+						{% image "src/" + fandf["image"], fandf["name"] %}
+					</a>
+				</div>
+			</div>
+		{%- endfor -%}
 	</div>
 </div>

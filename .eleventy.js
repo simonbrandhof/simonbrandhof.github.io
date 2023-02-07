@@ -1,15 +1,33 @@
 const { EleventyI18nPlugin } = require("@11ty/eleventy");
 const markdownIt = require("markdown-it");
-const htmlmin = require('html-minifier')
+const htmlmin = require('html-minifier');
+const Image = require('@11ty/eleventy-img');
+
+async function imageShortcode(src, alt, sizes="(min-width: 1024px) 100vw, 50vw") {
+	let metadata = await Image(src, {
+		widths: [300, 600, 1500],
+		formats: ["webp", "jpeg"],
+		outputDir: 'build/img',
+		urlPath: '/img'
+	});
+
+	let imageAttributes = {
+		alt,
+		sizes,
+		loading: "lazy",
+		decoding: "async",
+	};
+
+	// You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
+	return Image.generateHTML(metadata, imageAttributes);
+}
 
 module.exports = function(eleventyConfig) {
-
 	eleventyConfig.setTemplateFormats(["html", "njk", "md"]);
-
+	eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
 	eleventyConfig.addPassthroughCopy({
 		"src/img": "img",
 		"src/admin/config.yml": "admin/config.yml",
-		"src/media": "media",
 		"src/site.webmanifest": "site.webmanifest"
 	});
 
