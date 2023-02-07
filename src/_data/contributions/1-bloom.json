@@ -1,9 +1,9 @@
 {
   "key": "1. bloom",
 	"name": "Bloom",
-	"url_en": "https://bloomassociation.org/",
-	"url_fr": "https://bloomassociation.org/en",
+	"url_en": "https://bloomassociation.org/en",
+	"url_fr": "https://bloomassociation.org/",
 	"title_en": "[Bloom](https://www.bloomassociation.org/en/) is determined to fight the destruction of the ocean and livelihoods.",
-	"title_fr": "[Bloom](https://bloomassociation.org/) combat la destruction de l'océan, du climat et des pêcheurs artisans.",
+	"title_fr": "L'ONG [Bloom](https://bloomassociation.org/) combat la destruction de l'océan, du climat et des pêcheurs artisans.",
 	"image": "/media/bloom.jpg"
 }

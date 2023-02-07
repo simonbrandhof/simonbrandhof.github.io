@@ -11,39 +11,27 @@ layout: layouts/base.njk
 		<p></p>
 	</div>
 </div>
-<div class="p-6 lg:p-10">
-	<h2 class="leading-10 text-2xl sm:text-4xl font-bold pb-5 md:pb-10">contributions</h2>
-	<div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-10 max-w-[1800px]">
+
+{% macro links(title, dataCollection, dataCssClass) %}
+	<div class="p-6 lg:p-10">
+		<h2 class="leading-10 text-2xl sm:text-4xl font-bold pb-5 md:pb-10">{{ title }}</h2>
+		<div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-10 max-w-[1800px]">
 			<!-- how to iterate the global files in _data/: https://github.com/11ty/eleventy/issues/304#issuecomment-440678396 -->
-			{%- for key, contribution in contributions -%}
+			{%- for key, data in dataCollection -%}
 				<div class="md:self-end pb-14 md:pb-6">
-					<div class="contribution text-xl pb-5">
-						{{ contribution["title_" + locale] | md | safe }}
+					<div class="{{ dataCssClass }} text-xl pb-5">
+						{{ data["title_" + page.lang] | md | safe }}
 					</div>
 					<div class="border-2 border-stone-900">
-						<a href="{{ contribution["url_" + locale] }}">
-							{% image "src/" + contribution["image"], contribution["name"] %}
+						<a href="{{ data["url_" + page.lang] }}">
+							{% image "src/" + data["image"], data["name"] %}
 						</a>
 					</div>
 				</div>
 			{%- endfor -%}
+		</div>
 	</div>
-</div>
-<div class="p-6 lg:p-10">
-	<h2 class="leading-10 text-2xl sm:text-4xl font-bold pb-5 md:pb-10">friends & family</h2>
-	<div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-10 max-w-screen-2xl">
-		<!-- how to iterate the global files in _data/: https://github.com/11ty/eleventy/issues/304#issuecomment-440678396 -->
-		{%- for key, fandf in fandfs -%}
-			<div class="md:self-end pb-14 md:pb-6">
-				<div class="fandf text-xl pb-5">
-					{{ fandf["title_" + locale] | md | safe }}
-				</div>
-				<div class="border-2 border-stone-900">
-					<a href="{{ fandf["url_" + locale] }}">
-						{% image "src/" + fandf["image"], fandf["name"] %}
-					</a>
-				</div>
-			</div>
-		{%- endfor -%}
-	</div>
-</div>
+{% endmacro %}
+
+{{  links(messages[page.lang]["contributions"], dataCollection=contributions, dataCssClass="contribution") }}
+{{  links(messages[page.lang]["fandfs"], dataCollection=fandfs, dataCssClass="fandf") }}
