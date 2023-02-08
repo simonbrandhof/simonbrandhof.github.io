@@ -29,10 +29,24 @@
 		</script>
 	</head>
 	<body class="bg-stone-800 text-white">
-
-		<main>
-			{{ content | safe }}
-		</main>
-
+		<div class="lg:flex">
+			<aside class="lg:flex lg:flex-col lg:h-screen lg:sticky lg:top-0 lg:flex-initial p-6 lg:p-10 lg:pr-20">
+				<header class="text-5xl sm:text-7xl text-white font-bold flex-nowrap whitespace-nowrap">
+					{% include "./" + page.lang + "/_title.html" %}
+				</header>
+				<ul class="lg:flex-grow">
+				</ul>
+				<footer class="max-lg:fixed max-lg:bottom-0 max-lg:bg-stone-800 max-lg:py-2 max-lg:w-full">
+					<span class="">{{ messages[page.lang].language }}</span>
+					{% for link in page.url | locale_links %}
+						<a rel="alternate" hreflang="{{ link.lang }}" href="{{ meta.url }}{{ link.url }}" class="underline pl-2">{{ messages[link.lang].language }}
+						</a>
+					{% endfor %}
+				</footer>
+			</aside>
+			<main class="lg:flex-1 p-6 lg:p-10">
+					{{ content | safe }}
+			</main>
+		</div>
 	</body>
 </html>

@@ -1,5 +1,6 @@
 ---
 layout: layouts/base.njk
+changeFreq: weekly
 ---
 {% macro links(title, dataCollection, dataCssClass) %}
 	<div class="sm:pb-20">
@@ -22,17 +23,5 @@ layout: layouts/base.njk
 	</div>
 {% endmacro %}
 
-<div class="lg:flex">
-	<div class="lg:flex-initial p-6 lg:p-10 lg:pr-20">
-		<div class="text-5xl sm:text-7xl text-white font-bold flex-nowrap whitespace-nowrap">
-		{{ content | safe }}
-		</div>
-	</div>
-	<div class="lg:flex-1 p-6 lg:p-10">
-		{{  links(messages[page.lang]["contributions"], dataCollection=contributions, dataCssClass="contribution") }}
-		{{  links(messages[page.lang]["fandfs"], dataCollection=fandfs, dataCssClass="fandf") }}
-	</div>
-</div>
-
-
-
+{{  links(messages[page.lang]["contributions"], dataCollection=contributions, dataCssClass="contribution") }}
+{{  links(messages[page.lang]["fandfs"], dataCollection=fandfs, dataCssClass="fandf") }}
