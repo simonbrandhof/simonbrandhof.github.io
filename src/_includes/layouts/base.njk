@@ -34,8 +34,24 @@
 				<header class="text-5xl sm:text-7xl text-white font-bold flex-nowrap whitespace-nowrap">
 					{% include "./" + page.lang + "/_title.html" %}
 				</header>
-				<ul class="lg:flex-grow">
-				</ul>
+				<div class="pt-20 text-2xl lg:flex-grow">
+					<ul class="flex flex-row lg:flex-col">
+					{% for p in collections.page %}
+						{% if p.data.lang == page.lang %}
+						<li class="pr-5">
+							{% if p.page.url == page.url %}
+								<span>{{ p.data.title }}</span>
+							{% else %}
+								<a href="{{ p.url }}" class="underline">{{ p.data.title }}</a>
+							{% endif %}
+							{% if p.data.icon != undefined %}
+								<img src="data:image/png;base64,{{ p.data.icon }}" class="inline h-3.5 w-3.5" alt="">
+							{% endif %}
+						</li>
+						{% endif %}
+					{% endfor %}
+					</ul>
+				</div>
 				<footer class="max-lg:fixed max-lg:bottom-0 max-lg:bg-stone-800 max-lg:py-2 max-lg:w-full">
 					<span class="">{{ messages[page.lang].language }}</span>
 					{% for link in page.url | locale_links %}
