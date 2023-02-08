@@ -1,21 +1,10 @@
 ---
 layout: layouts/base.njk
 ---
-<div class="lg:flex">
-	<div class="lg:flex-initial p-6 lg:p-10 lg:pr-40">
-		<div class="text-5xl sm:text-7xl text-white font-bold flex-nowrap whitespace-nowrap">
-		{{ content | safe }}
-		</div>
-	</div>
-	<div class="lg:flex-1 p-6 lg:p-10">
-		<p></p>
-	</div>
-</div>
-
 {% macro links(title, dataCollection, dataCssClass) %}
-	<div class="p-6 lg:p-10">
-		<h2 class="leading-10 text-2xl sm:text-4xl font-bold pb-5 md:pb-10">{{ title }}</h2>
-		<div class="md:grid md:grid-cols-2 lg:grid-cols-3 md:gap-10 max-w-[1800px]">
+	<div class="sm:pb-20">
+		<h2 class="leading-10 sm:text-4xl text-2xl font-bold pb-5 md:pb-10">{{ title }}</h2>
+		<div class="md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-10 max-w-[1800px]">
 			<!-- how to iterate the global files in _data/: https://github.com/11ty/eleventy/issues/304#issuecomment-440678396 -->
 			{%- for key, data in dataCollection -%}
 				<div class="md:self-end pb-14 md:pb-6">
@@ -33,5 +22,17 @@ layout: layouts/base.njk
 	</div>
 {% endmacro %}
 
-{{  links(messages[page.lang]["contributions"], dataCollection=contributions, dataCssClass="contribution") }}
-{{  links(messages[page.lang]["fandfs"], dataCollection=fandfs, dataCssClass="fandf") }}
+<div class="lg:flex">
+	<div class="lg:flex-initial p-6 lg:p-10 lg:pr-20">
+		<div class="text-5xl sm:text-7xl text-white font-bold flex-nowrap whitespace-nowrap">
+		{{ content | safe }}
+		</div>
+	</div>
+	<div class="lg:flex-1 p-6 lg:p-10">
+		{{  links(messages[page.lang]["contributions"], dataCollection=contributions, dataCssClass="contribution") }}
+		{{  links(messages[page.lang]["fandfs"], dataCollection=fandfs, dataCssClass="fandf") }}
+	</div>
+</div>
+
+
+
