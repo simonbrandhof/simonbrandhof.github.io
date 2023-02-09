@@ -18,7 +18,6 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
 		<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 		<link rel="manifest" href="/site.webmanifest">
-
 		<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
@@ -46,11 +45,7 @@
 					{% for p in collections.page %}
 						{% if p.data.lang == page.lang %}
 						<li class="pr-5">
-							{% if p.page.url == page.url %}
-								<span>{{ p.data.title }}</span>
-							{% else %}
-								<a href="{{ p.url }}" class="underline hover:decoration-double">{{ p.data.title }}</a>
-							{% endif %}
+							<a href="{{ p.url }}" class="underline hover:decoration-double" {% if p.page.url == page.url %}aria-current="page"{% endif %}>{{ p.data.title }}</a>
 							{% if p.data.icon != undefined %}
 								<img src="data:image/png;base64,{{ p.data.icon }}" class="inline h-3.5 w-3.5" alt="">
 							{% endif %}
