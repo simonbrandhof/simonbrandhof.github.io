@@ -34,7 +34,7 @@
 				<header class="text-5xl sm:text-7xl text-white font-bold flex-nowrap whitespace-nowrap">
 					{% include "./" + page.lang + "/_title.html" %}
 				</header>
-				<div class="pt-20 text-2xl lg:flex-grow">
+				<div class="pt-20 text-xl lg:flex-grow">
 					<ul class="flex flex-row lg:flex-col">
 					{% for p in collections.page %}
 						{% if p.data.lang == page.lang %}
@@ -42,7 +42,7 @@
 							{% if p.page.url == page.url %}
 								<span>{{ p.data.title }}</span>
 							{% else %}
-								<a href="{{ p.url }}" class="underline">{{ p.data.title }}</a>
+								<a href="{{ p.url }}" class="underline hover:decoration-double">{{ p.data.title }}</a>
 							{% endif %}
 							{% if p.data.icon != undefined %}
 								<img src="data:image/png;base64,{{ p.data.icon }}" class="inline h-3.5 w-3.5" alt="">
@@ -55,13 +55,13 @@
 				<footer class="max-lg:fixed max-lg:bottom-0 max-lg:bg-stone-800 max-lg:py-2 max-lg:w-full">
 					<span class="">{{ messages[page.lang].language }}</span>
 					{% for link in page.url | locale_links %}
-						<a rel="alternate" hreflang="{{ link.lang }}" href="{{ meta.url }}{{ link.url }}" class="underline pl-2">{{ messages[link.lang].language }}
+						<a rel="alternate" hreflang="{{ link.lang }}" href="{{ meta.url }}{{ link.url }}" class="underline pl-2 hover:decoration-double">{{ messages[link.lang].language }}
 						</a>
 					{% endfor %}
 				</footer>
 			</aside>
-			<main class="lg:flex-1 p-6 lg:p-10">
-					{{ content | safe }}
+			<main class="lg:flex-1 p-6 lg:p-10 pb-20">
+				{{ content | safe }}
 			</main>
 		</div>
 	</body>
