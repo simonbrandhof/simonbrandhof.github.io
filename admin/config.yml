@@ -96,13 +96,13 @@ collections:
     files:
       - label: "About (English)"
         name: "about_en"
-        file: "src/en/about.md"
+        file: "src/en/low-carbon.md"
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Body, name: body, widget: markdown, minimal: true }
       - label: "About (French)"
         name: "about_fr"
-        file: "src/fr/about.md"
+        file: "src/fr/low-carbon.md"
         fields:
           - { label: Title, name: title, widget: string }
           - { label: Body, name: body, widget: markdown, minimal: true }
