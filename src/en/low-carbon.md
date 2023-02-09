@@ -5,10 +5,4 @@ icon: iVBORw0KGgoAAAANSUhEUgAAABUAAAAYCAMAAAAiV0Z6AAAAPFBMVEVLoEN0wU6CzFKCzFKCzF
 ---
 ## why a low-carbon website?
 
-Work in progress
-
-## what?
-
-
-
-## how?
+**Work in progress**
