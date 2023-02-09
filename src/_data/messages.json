@@ -2,11 +2,13 @@
 	"en": {
 		"contributions": "contributions",
 		"fandfs": "friends & family",
-		"language": "English"
+		"language": "English",
+		"copyright": "Image copyrights to Bloom association, Shematic, Reviewpad and Revival."
 	},
 	"fr": {
 		"contributions": "contributions",
 		"fandfs": "entourage",
-		"language": "Français"
+		"language": "Français",
+		"copyright": "Copyrights images à l'association Bloom, Shematic, Reviewpad et Revival."
 	}
 }
