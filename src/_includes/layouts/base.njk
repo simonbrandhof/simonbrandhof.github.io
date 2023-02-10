@@ -40,11 +40,11 @@
 				<header class="text-5xl sm:text-7xl text-white font-bold flex-nowrap whitespace-nowrap">
 					{% include "./" + page.lang + "/_title.html" %}
 				</header>
-				<div class="pt-20 text-xl lg:flex-grow">
-					<ul class="flex flex-row lg:flex-col">
+				<div class="pt-14 text-xl lg:flex-grow">
+					<ul class="flex flex-row gap-x-3 lg:flex-col">
 					{% for p in collections.page %}
 						{% if p.data.lang == page.lang %}
-						<li class="pr-5">
+						<li>
 							<a href="{{ p.url }}" class="underline hover:decoration-double" {% if p.page.url == page.url %}aria-current="page"{% endif %}>{{ p.data.title }}</a>
 							{% if p.data.icon != undefined %}
 								<img src="{{ p.data.icon }}" class="inline h-5 w-5" alt="">
@@ -54,10 +54,10 @@
 					{% endfor %}
 					</ul>
 				</div>
-				<footer class="max-lg:fixed max-lg:bottom-0 max-lg:bg-stone-800 max-lg:py-2 max-lg:w-full">
+				<footer class="max-lg:fixed max-lg:bottom-0 max-lg:bg-stone-800 max-lg:py-4 max-lg:w-full">
 					<span class="">{{ messages[page.lang].language }}</span>
 					{% for link in page.url | locale_links %}
-						<a rel="alternate" hreflang="{{ link.lang }}" href="{{ meta.url }}{{ link.url }}" class="underline pl-2 hover:decoration-double">{{ messages[link.lang].language }}
+						<a rel="alternate" hreflang="{{ link.lang }}" href="{{ meta.url }}{{ link.url }}" class="underline pl-3 hover:decoration-double">{{ messages[link.lang].language }}
 						</a>
 					{% endfor %}
 				</footer>
