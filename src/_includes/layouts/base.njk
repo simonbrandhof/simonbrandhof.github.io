@@ -47,7 +47,7 @@
 						<li class="pr-5">
 							<a href="{{ p.url }}" class="underline hover:decoration-double" {% if p.page.url == page.url %}aria-current="page"{% endif %}>{{ p.data.title }}</a>
 							{% if p.data.icon != undefined %}
-								<img src="data:image/png;base64,{{ p.data.icon }}" class="inline h-3.5 w-3.5" alt="">
+								<img src="{{ p.data.icon }}" class="inline h-5 w-5" alt="">
 							{% endif %}
 						</li>
 						{% endif %}
