@@ -40,7 +40,7 @@
 				<header class="text-5xl sm:text-7xl text-white font-bold flex-nowrap whitespace-nowrap">
 					{% include "./" + page.lang + "/_title.html" %}
 				</header>
-				<div class="pt-14 text-xl lg:flex-grow">
+				<div class="pt-14 text-xl lg:flex-grow print:hidden">
 					<ul class="flex flex-row gap-x-3 lg:flex-col">
 					{% for p in collections.page %}
 						{% if p.data.lang == page.lang %}
@@ -54,7 +54,7 @@
 					{% endfor %}
 					</ul>
 				</div>
-				<footer class="max-lg:fixed max-lg:bottom-0 max-lg:bg-stone-800 max-lg:py-4 max-lg:w-full">
+				<footer class="max-lg:fixed max-lg:bottom-0 max-lg:bg-stone-800 max-lg:py-4 max-lg:w-full print:hidden">
 					<span class="">{{ messages[page.lang].language }}</span>
 					{% for link in page.url | locale_links %}
 						<a rel="alternate" hreflang="{{ link.lang }}" href="{{ meta.url }}{{ link.url }}" class="underline pl-3 hover:decoration-double">{{ messages[link.lang].language }}
