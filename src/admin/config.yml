@@ -18,6 +18,7 @@ media_folder: "src/media"
 public_folder: "/img"
 locale: "en"
 search: false
+publish_mode: editorial_workflow
 
 # publish_mode: editorial_workflow
 collections:
