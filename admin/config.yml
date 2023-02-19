@@ -1,23 +1,25 @@
 # Uncomment for development environment
 #  Run "npx netlify-cms-proxy-server" to start local Netlify server
-local_backend: true
-backend:
-  name: git-gateway
-  branch: main
+#local_backend: true
+#backend:
+#  name: git-gateway
+#  branch: main
 
 # Uncomment for production environment
-#backend:
-#  name: github
-#  repo: simonbrandhof/simonbrandhof.github.io
-#  branch: main
-#  base_url: https://github-oauth-ojofun7zia-ew.a.run.app
-#  auth: github-oauth/auth
+backend:
+  name: github
+  repo: simonbrandhof/simonbrandhof.github.io
+  branch: main
+  base_url: https://github-oauth-ojofun7zia-ew.a.run.app
+  auth: github-oauth/auth
 
 
 media_folder: "src/media"
 public_folder: "/img"
 locale: "en"
 search: false
+publish_mode: editorial_workflow
+show_preview_links: true
 
 # publish_mode: editorial_workflow
 collections:
