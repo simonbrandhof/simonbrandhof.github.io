@@ -10,14 +10,15 @@
 					"inLanguage": "en"
 				}
 			]
-		}</script></head><body class="bg-stone-800 text-white"><div class="lg:flex"><aside class="lg:flex lg:flex-col lg:h-screen lg:sticky lg:top-0 lg:flex-initial p-6 lg:p-10 lg:pr-20"><header class="text-5xl sm:text-7xl text-white font-bold flex-nowrap whitespace-nowrap">no vision,<br>no <span class="text-green-700">future</span></header><div class="pt-14 text-xl lg:flex-grow print:hidden"><ul class="flex flex-row gap-x-3 lg:flex-col"><li><a href="/en/" class="underline hover:decoration-double">simon brandhof</a></li><li><a href="/en/low-carbon/" class="underline hover:decoration-double">low-carbon website</a> <img src="/img/leaf.svg" class="inline h-5 w-5" alt=""></li></ul></div><footer class="max-lg:fixed max-lg:bottom-0 max-lg:bg-stone-800 max-lg:py-4 max-lg:w-full print:hidden"><span class="">English</span></footer></aside><main class="lg:flex-1 p-6 lg:p-10 pb-20"><script type="text/javascript">// l10n: find the first supported language from the preferred languages configured in browser
+		}</script></head><body class="bg-stone-800 text-white"><script>// l10n: find the first supported language from the preferred languages configured in browser
 	let path = "/en";
+	const supportedLangs = [
+	"en","fr"];
 	for (let i = 0; i < navigator.languages.length; i++) {
 		let lang = navigator.languages[i].split("-")[0];
-		//TODO: load the supported languages dynamically from configuration
-		if (lang === "en" || lang === "fr") {
+		if (supportedLangs.includes(lang)) {
 			path = "/" + lang;
 			break;
 		}
 	}
-	window.location.href = path;</script></main></div></body></html>
+	window.location.href = path;</script><noscript><div class="flex flex-row p-10 gap-5"><div>Select your language:</div><div><a href="/en" lang="en" class="underline hover:decoration-double">English</a></div><div><a href="/fr" lang="fr" class="underline hover:decoration-double">Français</a></div></div></noscript></body></html>
