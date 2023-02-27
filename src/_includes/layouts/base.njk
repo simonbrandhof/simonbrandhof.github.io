@@ -1,70 +1,37 @@
-<!doctype html>
-<html lang="{{ page.lang }}" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{{ title or site.title }}</title>
-		<meta name="description" content="{{ site.description }}">
-		<meta name="generator" content="{{ eleventy.generator }}">
-		<link rel="canonical" href="{{ site.url }}{{ page.url }}">
-		<meta property="og:title" content="{{ title or site.title }}">
-		<meta property="og:description" content="{{ description or site.description }}">
-		<meta property="og:url" content="{{ site.url }}{{ page.url }}">
-		<meta property="og:type" content="{{ og_type or "website" }}">
-		<meta property="og:locale" content="{{ page.lang }}">
-		<link href="/css/style.css" rel="stylesheet">
-		<link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
-		<link rel="icon" type="image/x-icon" href="/img/favicon.ico">
-		<link rel="manifest" href="/site.webmanifest">
-		<script type="application/ld+json">
-		{
-			"@context": "https://schema.org",
-			"@graph": [
-				{
-					"@type": "WebSite",
-					"@id": "{{ site.url }}",
-					"url": "{{ site.url }}",
-					"name": "{{ site.title }}",
-					"description": "{{ site.description }}",
-					"inLanguage": "{{ page.lang }}"
-				}
-			]
-		}
-		</script>
-	</head>
-	<body class="bg-stone-800 text-white">
-		<div class="lg:flex">
-			<aside class="lg:flex lg:flex-col lg:h-screen lg:sticky lg:top-0 lg:flex-initial p-6 lg:p-10 lg:pr-20">
-				<header class="text-5xl sm:text-7xl text-white font-bold flex-nowrap whitespace-nowrap">
-					{% include "./" + page.lang + "/_title.html" %}
-				</header>
-				<div class="pt-14 text-xl lg:flex-grow print:hidden">
-					<ul class="flex flex-row gap-x-3 lg:flex-col">
-					{% for p in collections.page %}
-						{% if p.data.lang == page.lang %}
+---
+layout: layouts/skeleton.njk
+---
+<div class="lg:flex">
+	<aside class="lg:flex lg:flex-col lg:h-screen lg:sticky lg:top-0 lg:flex-initial p-6 lg:p-10 lg:pr-20">
+		<header class="text-5xl sm:text-7xl text-white font-bold flex-nowrap whitespace-nowrap font-serif">
+			{% include "./" + page.lang + "/_title.html" %}
+		</header>
+		<div class="pt-14 text-xl lg:flex-grow print:hidden">
+			<ul class="flex flex-row gap-x-3 lg:flex-col">
+				{% for p in collections.page %}
+					{% if p.data.lang == page.lang %}
 						<li>
 							<a href="{{ p.url }}" class="underline hover:decoration-double" {% if p.page.url == page.url %}aria-current="page"{% endif %}>{{ p.data.title }}</a>
 							{% if p.data.icon != undefined %}
 								<img src="{{ p.data.icon }}" class="inline h-5 w-5" alt="">
 							{% endif %}
 						</li>
-						{% endif %}
-					{% endfor %}
-					</ul>
-				</div>
-				<footer class="max-lg:fixed max-lg:bottom-0 max-lg:bg-stone-800 max-lg:py-4 max-lg:w-full print:hidden">
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+		<footer class="max-lg:fixed max-lg:bottom-0 max-lg:bg-stone-800 max-lg:py-4 max-lg:w-full print:hidden">
+			<div class="flex flex-row gap-2">
 					<span class="">{{ messages[page.lang].language }}</span>
 					{% for link in page.url | locale_links %}
-						<a rel="alternate" hreflang="{{ link.lang }}" href="{{ meta.url }}{{ link.url }}" class="underline pl-3 hover:decoration-double">{{ messages[link.lang].language }}
+						<a rel="alternate" hreflang="{{ link.lang }}" href="{{ meta.url }}{{ link.url }}"
+							 class="underline hover:decoration-double">{{ messages[link.lang].language }}
 						</a>
 					{% endfor %}
-				</footer>
-			</aside>
-			<main class="lg:flex-1 p-6 lg:p-10 pb-20">
-				{{ content | safe }}
-			</main>
-		</div>
-	</body>
-</html>
+			</div>
+		</footer>
+	</aside>
+	<main class="lg:flex-1 p-6 lg:p-10 pb-20">
+		{{ content | safe }}
+	</main>
+</div>

@@ -2,8 +2,8 @@
 layout: layouts/base.njk
 ---
 {% macro links(title, dataCollection, dataCssClass) %}
-	<div class="sm:pb-20">
-		<h2 class="leading-10 sm:text-4xl text-2xl font-bold pb-5 md:pb-10">{{ title }}</h2>
+	<div class="sm:pb-10">
+		<h2 class="leading-10 sm:text-4xl text-2xl font-bold pb-5 font-serif">{{ title }}</h2>
 		<div class="md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-10 max-w-[1800px]">
 			<!-- how to iterate the global files in _data/: https://github.com/11ty/eleventy/issues/304#issuecomment-440678396 -->
 			{%- for key, data in dataCollection -%}
