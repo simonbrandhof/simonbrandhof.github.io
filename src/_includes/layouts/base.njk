@@ -2,16 +2,16 @@
 layout: layouts/skeleton.njk
 ---
 <div class="lg:flex">
-	<aside class="lg:flex lg:flex-col lg:h-screen lg:sticky lg:top-0 lg:flex-initial p-6 lg:p-10 lg:pr-20">
-		<header class="text-5xl sm:text-7xl text-white font-bold flex-nowrap whitespace-nowrap font-serif">
+	<aside class="lg:flex lg:flex-col lg:h-screen lg:sticky lg:top-0 lg:flex-initial">
+		<header class="text-5xl sm:text-7xl text-white font-bold flex-nowrap whitespace-nowrap font-serif p-6 lg:p-10 lg:pr-20">
 			{% include "./" + page.lang + "/_title.html" %}
 		</header>
-		<div class="pt-14 text-xl lg:flex-grow print:hidden">
-			<ul class="flex flex-row gap-x-3 lg:flex-col">
+		<div class="pt-14 text-xl lg:flex-grow print:hidden p-6 lg:p-10">
+			<ul class="flex flex-row gap-x-3 lg:flex-col flex-wrap">
 				{% for p in collections.page %}
 					{% if p.data.lang == page.lang %}
-						<li>
-							<a href="{{ p.url }}" class="underline hover:decoration-double" {% if p.page.url == page.url %}aria-current="page"{% endif %}>{{ p.data.title }}</a>
+						<li class="whitespace-nowrap">
+							<a href="{{ p.url }}" class="{% if p.page.url != page.url %}underline{% endif %} hover:underline hover:decoration-double" {% if p.page.url == page.url %}aria-current="page"{% endif %}>{{ p.data.title }}</a>
 							{% if p.data.icon != undefined %}
 								<img src="{{ p.data.icon }}" class="inline h-5 w-5" alt="">
 							{% endif %}

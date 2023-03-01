@@ -2,7 +2,7 @@
 layout: layouts/base.njk
 ---
 {% macro links(title, dataCollection, dataCssClass) %}
-	<div class="sm:pb-10">
+	<div class="pt-10">
 		<h2 class="leading-10 sm:text-4xl text-2xl font-bold pb-5 font-serif">{{ title }}</h2>
 		<div class="md:grid md:grid-cols-2 xl:grid-cols-3 md:gap-10 max-w-[1800px]">
 			<!-- how to iterate the global files in _data/: https://github.com/11ty/eleventy/issues/304#issuecomment-440678396 -->
@@ -22,9 +22,13 @@ layout: layouts/base.njk
 	</div>
 {% endmacro %}
 
+<p class="text-xl">
+	{{ content | safe }}
+</p>
+
 {{  links(messages[page.lang]["contributions"], dataCollection=contributions, dataCssClass="contribution") }}
 {{  links(messages[page.lang]["fandfs"], dataCollection=fandfs, dataCssClass="fandf") }}
 
-<p>
+<p class="pt-10">
 	<em>{{ messages[page.lang].copyright }}</em>
 </p>
